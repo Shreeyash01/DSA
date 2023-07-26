@@ -1,4 +1,8 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Node
@@ -13,7 +17,7 @@ public:
         next = NULL;
     }
 };
-void insertAtTail(Node *&head, int val)
+void insertAthead(Node *&head, int val)
 {
     Node *n = new Node(val);
     if (head == NULL)
@@ -23,12 +27,8 @@ void insertAtTail(Node *&head, int val)
     }
     else
     {
-        Node *temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = n;
+        n->next=head;
+        head=n;
     }
 };
 void display(Node *head)
@@ -40,7 +40,6 @@ void display(Node *head)
         temp = temp->next;
     }
 };
-
 int main() {
     Node *head=NULL;
     
@@ -50,9 +49,8 @@ int main() {
     int val;
     for(int i=0; i<n; i++){
         cin>>val;
-        insertAtTail(head,val);
+        insertAthead(head,val);
     }
     display(head);
-    
     return 0;
 }
