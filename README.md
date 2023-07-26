@@ -1,2 +1,2 @@
 # DSA
-My solutions for DSA Questions on HR
+My solutions for DSA Questions on HR platform.
