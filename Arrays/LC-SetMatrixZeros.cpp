@@ -1,31 +1,32 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        queue<int> q;
-        for(int m=0; m<matrix.size(); m++){
-            for(int n=0; n<matrix[0].size(); n++){
-                if(matrix[m][n]==0){
-                    q.push(m);
-                    q.push(n);
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+        unordered_set<int> zeroRows;
+        unordered_set<int> zeroCols;
+
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if (matrix[i][j] == 0) {
+                    zeroRows.insert(i);
+                    zeroCols.insert(j);
                 }
             }
         }
-        while(!q.empty()){
-            int i=q.front();
-            q.pop();
-            int j=q.front();
-            q.pop();
-            for(int k=0; k<matrix.size(); k++){
-                for(int l=0; l<matrix[0].size(); l++){
-                    if(k==i || l==j){
-                        matrix[k][l]=0;
-                    }
-                }
+        for (int row : zeroRows) {
+            for (int j = 0; j < cols; ++j) {
+                matrix[row][j] = 0;
             }
         }
-        for(int a=0; a<matrix.size(); a++){
-            for(int b=0; b<matrix[0].size(); b++){
-                cout<<matrix[a][b];
+        for (int col : zeroCols) {
+            for (int i = 0; i < rows; ++i) {
+                matrix[i][col] = 0;
+            }
+        }
+        for(int i=0; i<rows; ++i){
+            for(int j=0; j<cols; ++j){
+                cout<<matrix[i][j];
             }
         }
     }
