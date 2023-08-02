@@ -1,2 +1,2 @@
 # DSA
-My solutions for DSA Questions on HR platform.
+My solutions for DSA Questions on platforms like HackerRank LeetCode and GeeksForGeeks.
